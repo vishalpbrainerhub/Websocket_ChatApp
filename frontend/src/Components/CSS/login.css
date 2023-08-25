@@ -1,0 +1,60 @@
+/* App.css */
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 250px;
+  background: transparent;
+}
+
+form {
+  background: transparent;
+  color: black;
+}
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.auth-container input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  transition: border-color 0.3s ease;
+  color: #000;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: dodgerblue;
+}
+
+.auth-container button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #1976d2;
+}

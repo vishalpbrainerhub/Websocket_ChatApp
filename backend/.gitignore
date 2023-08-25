@@ -1,0 +1,5 @@
+.env
+node_modules/
+
+# how to remove git origin
+git remote rm origin
