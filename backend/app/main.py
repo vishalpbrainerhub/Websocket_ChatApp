@@ -70,7 +70,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int,db: Session = 
     try:
         while True:
             data = await websocket.receive_text()
-            message = {"time":current_time,"clientId":client_id,"message":data}
+            message = {"time":current_time,"clientId":client_id,"message":data,"senderId":chat.user1_id}
             # storing the data of messages in the database
             if data == "Connect":
                 continue

@@ -60,20 +60,18 @@ function Chatapp() {
   };
   const sendMessage = () => {
     websckt.send(message);
-    // recieve message every send message
     websckt.onmessage = (e) => {
       const message = JSON.parse(e.data);
       setMessages([...messages, message]);
       console.log(message, "message from send message");
       vpSetting.push(message);
+      setVpSetting(vpSetting);
     };
     setMessage([]);
   };
 
   const handleUserchat = (e) => {
     username = e.target.innerText;
-    // username = username.toLowerCase();
-    // username = username + "@gmail.com";
     let friendId = "";
     for (let i = 0; i < users.length; i++) {
       if (users[i].email === username) {
@@ -99,7 +97,6 @@ function Chatapp() {
         username = username.replace("@gmail.com", "");
         username = username.toUpperCase();
         setItsyou(username);
-
 
         document.getElementById("chat-header-text").innerText = username;
         localStorage.setItem("chat_id", data.chat_id);
@@ -127,7 +124,7 @@ function Chatapp() {
 
   return (
     <div className="container">
-      <h1>CHATSAPP</h1>
+      <h4>CHATSAPP</h4>
       <h2>Hello {username} </h2>
       <div className="main">
         <div className="user-container">
@@ -136,9 +133,6 @@ function Chatapp() {
           </div>
           <div className="user">
             {users.map((value, index) => {
-              //  i want to remove @gmail.com from username
-              // value.email = value.email.replace("@gmail.com", "");
-              // value.email = value.email.toUpperCase();
               return (
                 <div key={index} className="user-list">
                   <button className="user-button" onClick={handleUserchat}>
@@ -163,7 +157,11 @@ function Chatapp() {
                     <div key={index} className="my-message-container">
                       <div className="my-message">
                         {/* <p className="client">client id : {clientId}</p> */}
-                        <p className="message"> <span  className="itsmemsg">{value.message}</span><span className="itsme">me</span> </p>
+                        <p className="message">
+                          {" "}
+                          <span className="itsmemsg">{value.message}</span>
+                          <span className="itsme">me</span>{" "}
+                        </p>
                       </div>
                     </div>
                   );
@@ -172,7 +170,12 @@ function Chatapp() {
                     <div key={index} className="another-message-container">
                       <div className="another-message">
                         {/* <p className="client">client id : {clientId}</p> */}
-                        <p className="message"><span className="itsyou" id="itsyoushowing">{itsyou}</span><span  className="itsyoumsg">{value.message}</span></p>
+                        <p className="message">
+                          <span className="itsyou" id="itsyoushowing">
+                            {itsyou}
+                          </span>
+                          <span className="itsyoumsg">{value.message}</span>
+                        </p>
                       </div>
                     </div>
                   );
@@ -196,11 +199,19 @@ function Chatapp() {
           </div>
         </div>
         <div className="image-container">
-          <img
-            src="https://thumbs.dreamstime.com/z/vertical-aerial-shot-skyscrapers-city-lights-nighttime-vertical-aerial-shot-skyscrapers-city-lights-157709766.jpg"
-            alt="chat"
-          />
+          <div>
+            <img
+              src="https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
+              alt="chat"
+            />
           </div>
+          <h3 id="demoidshow">Demo@gmail.com</h3>
+          <p id="demoidpara">My life my rules 😎 and njckasdn  cjd janjkdnjn djnjaknsjdn jnskjdnjdnj  dnjdjknjkdnjn</p>
+          <div className="media">
+            <h4>Media</h4>
+            
+          </div>
+        </div>
       </div>
     </div>
   );
